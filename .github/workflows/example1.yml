@@ -1,0 +1,12 @@
+name: Tutorial 1
+run-name: ${{ github.actor }} is running the first tutorial.
+on: [push]
+jobs:
+  check-python-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+      - run: python calculator.py --num-1 3 num-2 6
