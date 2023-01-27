@@ -12,5 +12,4 @@ def add_nums(num_1: float, num_2: float) -> float:
 
 
 if __name__ == "__main__":
-    # result = add_nums()
     print(add_nums())

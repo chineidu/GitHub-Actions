@@ -1,0 +1,6 @@
+black
+click
+pandas
+pre-commit
+pylint
+pytest
