@@ -17,7 +17,7 @@ jobs:
         run: make setup_venv
       - name: Build Package
         run: make train
-      - name: Run tests
-        run: make test
-      - name: Run linting tests
-        run: make telintst
+      - name: Run tests and linting
+        run: make checks
+      - name: Run Pylint tests
+        run: pylint src

@@ -7,7 +7,8 @@ help:
 	@echo "\Commands:"
 	@echo "\tsetup_venv:    Set up the virtual environment."
 	@echo "\ttest:          Run tests."
-	@echo "\tlint:          Check for styles."
+	@echo "\tlint:          Run linting test."
+	@echo "\tlint:          Run tests and lint"
 
 setup_venv:
 	python3 -m venv .venv && . .venv/bin/activate \
@@ -43,5 +44,6 @@ test: clean
 
 lint:
 	. .venv/bin/activate \
-	&& black . && isort . \
-	&& pylint --recursive=y src/calculator.py src/main.py ${SRC_CODE}/utils.py
+	&& black . && isort .
+
+checks: test lint
