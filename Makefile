@@ -42,6 +42,7 @@ test: clean
 
 lint:
 	. .venv/bin/activate \
-	&& black . && isort .
+	&& black ${SRC_CODE} && isort ${SRC_CODE} \
+	&& pylint ${SRC_CODE} -j 4 --reports=y
 
 checks: test lint
