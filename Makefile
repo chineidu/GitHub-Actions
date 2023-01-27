@@ -13,7 +13,8 @@ help:
 setup_venv:
 	python3 -m venv .venv && . .venv/bin/activate \
 	&& python3 -m pip install --upgrade pip \
-	&& python3 -m pip install -e .
+	&& python3 -m pip install -e . \
+	&& pip install -r requirements.txt
 
 activate_venv: setup_venv
 	. .venv/bin/activate
