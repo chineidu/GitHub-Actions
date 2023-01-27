@@ -16,9 +16,6 @@ setup_venv:
 	&& python3 -m pip install -e . \
 	&& pip install -r requirements.txt
 
-activate_venv: setup_venv
-	. .venv/bin/activate
-
 train:
 	. .venv/bin/activate && python ${SRC_CODE}/main.py
 
@@ -37,12 +34,14 @@ clean: clean_pyc clean_test
 	find . -name '.my_cache' -exec rm -fr {} +
 	rm -rf logs/
 
-test: clean activate_venv
-	pytest -svv --cov=${SRC_CODE} \
+test: clean
+	. .venv/bin/activate \
+	&& pytest -svv --cov=${SRC_CODE} \
 	tests --cov-report=term-missing \
 	--cov-fail-under ${COVERAGE_THRESH}
 
-lint: activate_venv
-	black . && isort .
+lint:
+	. .venv/bin/activate \
+	&& black . && isort .
 
 checks: test lint
