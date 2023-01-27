@@ -19,7 +19,7 @@ jobs:
         run: make train
       - name: Run tests and linting
         run: make checks
-      # - name: Run Pylint tests
-      #   run: |
-      #     make activate_venv
-      #     pylint src
+      - name: Run Pylint tests
+        run: |
+          . .venv/bin/activate
+          pylint src
