@@ -1,0 +1,39 @@
+[tool.pylint.messages_control]
+
+disable = [
+    "consider-using-sys-exit",
+    "cyclic-import",
+    "duplicate-code",
+    "missing-function-docstring",
+    "missing-final-newline",
+    "missing-class-docstring",
+    "missing-module-docstring",
+    "missing-timeout",
+    "no-name-in-module",
+    "no-value-for-parameter",
+    "inconsistent-return-statements",
+    "invalid-name",
+    "import-error",
+    "too-few-public-methods",
+    "line-too-long",
+    "logging-fstring-interpolation",
+    "logging-too-many-args",
+    "redefined-outer-name",
+    "unspecified-encoding",
+    "ungrouped-imports",
+    "redefined-builtin",
+    "global-variable-not-assigned",
+    "unused-argument",
+    "useless-import-alias"
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+skip-string-normalization = true
+
+[tool.isort]
+skip = [".gitignore", ".dockerignore"]
+group_by_package = true
+multi_line_output = 3
+py_version=39
