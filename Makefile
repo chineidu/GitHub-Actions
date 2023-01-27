@@ -36,14 +36,12 @@ clean: clean_pyc clean_test
 	find . -name '.my_cache' -exec rm -fr {} +
 	rm -rf logs/
 
-test: clean
-	. .venv/bin/activate \
-	&& pytest -svv --cov=${SRC_CODE} \
+test: clean activate_venv
+	pytest -svv --cov=${SRC_CODE} \
 	tests --cov-report=term-missing \
 	--cov-fail-under ${COVERAGE_THRESH}
 
-lint:
-	. .venv/bin/activate \
-	&& black . && isort .
+lint: activate_venv
+	black . && isort .
 
 checks: test lint
