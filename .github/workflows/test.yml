@@ -5,14 +5,19 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.9"
-      - run: make setup_dependencies
-      - run: echo dependencies set up done!
+      - name: Setup Dependencies
+        run: make setup_venv
+      - name: Build Package
+        run: make train
+      - name: Run tests
+        run: make test
+      - name: Run linting tests
+        run: make telintst
