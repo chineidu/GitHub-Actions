@@ -8,7 +8,7 @@ help:
 	@echo "\tsetup_venv:    Set up the virtual environment."
 	@echo "\ttest:          Run tests."
 	@echo "\tlint:          Run linting test."
-	@echo "\tlint:          Run tests and lint"
+	@echo "\tchecks:          Run tests and lint"
 
 setup_venv:
 	python3 -m venv .venv && . .venv/bin/activate \
